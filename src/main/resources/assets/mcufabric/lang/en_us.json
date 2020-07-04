@@ -1,0 +1,10 @@
+{
+	"block.mcufabric.microcontroller": "Microcontroller",
+	"item.mcufabric.microcontroller": "Microcontroller",
+	"mcufabric.microcontroller.gui.title": "Microcontroller GUI",
+	"mcufabric.microcontroller.gui.codepanel": "Code Editor",
+	"mcufabric.microcontroller.gui.north": "North",
+	"mcufabric.microcontroller.gui.south": "South",
+	"mcufabric.microcontroller.gui.east": "East",
+	"mcufabric.microcontroller.gui.west": "West"
+}

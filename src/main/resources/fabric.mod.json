@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "id": "mcu-fabric",
+  "version": "${version}",
+  "name": "MicroCookie",
+  "description": "Adds a programmable microcontroller to the game.",
+  "authors": [
+    "ElijahZAwesome"
+  ],
+  "license": "CC0-1.0",
+  "icon": "assets/mcu-fabric/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.elijahzawesome.mcufabric.McuFabric"
+    ]
+  },
+  "mixins": [
+    "mcu-fabric.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.8.8+build.202",
+    "fabric": "*",
+    "minecraft": "1.16.X"
+  }
+}
