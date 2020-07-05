@@ -3,7 +3,9 @@ package com.elijahzawesome.mcufabric;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.network.ServerSidePacketRegistry;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
+import net.minecraft.block.BlockWithEntity;
 import net.minecraft.block.Material;
+import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
@@ -35,16 +37,20 @@ public class McuFabric implements ModInitializer {
         ServerSidePacketRegistry.INSTANCE.register(UPDATE_MCU_PACKET, (packetContext, attachedData) -> {
             // Get the BlockPos we put earlier in the IO thread
             BlockPos pos = attachedData.readBlockPos();
+            boolean northEnabled = attachedData.readBoolean();
+            boolean southEnabled = attachedData.readBoolean();
+            boolean eastEnabled = attachedData.readBoolean();
+            boolean westEnabled = attachedData.readBoolean();
             packetContext.getTaskQueue().execute(() -> {
                 // Execute on the main thread
 
                 // ALWAYS validate that the information received is valid in a C2S packet!
-                if(packetContext.getPlayer().world.canSetBlock(pos)){
-                    // Turn to diamond
-                    System.out.println("fuck moment");
-                    //packetContext.getPlayer().world.setBlockState(pos, Blocks.DIAMOND_BLOCK.getDefaultState());
-                }
-
+                // TODO: Actually validate this packet lmao
+                //if(packetContext.getPlayer().world.canSetBlock(pos)){
+                ((MicroControllerEntity)packetContext.getPlayer().world.getBlockEntity(pos)).SetPorts(
+                        northEnabled, southEnabled, eastEnabled, westEnabled
+                );
+                //}
             });
         });
     }

@@ -3,8 +3,10 @@
 	"item.mcufabric.microcontroller": "Microcontroller",
 	"mcufabric.microcontroller.gui.title": "Microcontroller GUI",
 	"mcufabric.microcontroller.gui.codepanel": "Code Editor",
-	"mcufabric.microcontroller.gui.north": "North",
-	"mcufabric.microcontroller.gui.south": "South",
-	"mcufabric.microcontroller.gui.east": "East",
-	"mcufabric.microcontroller.gui.west": "West"
+	"mcufabric.microcontroller.gui.enabled": "OUT",
+	"mcufabric.microcontroller.gui.disabled": "IN",
+	"mcufabric.microcontroller.gui.north": "North: ",
+	"mcufabric.microcontroller.gui.south": "South: ",
+	"mcufabric.microcontroller.gui.east": "East: ",
+	"mcufabric.microcontroller.gui.west": "West: "
 }

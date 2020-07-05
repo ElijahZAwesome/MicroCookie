@@ -38,14 +38,14 @@ public class MicroController extends HorizontalFacingBlock implements BlockEntit
     @Override
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
         if(world.isClient)
-            OpenGui(pos);
+            OpenGui(pos, (MicroControllerEntity)world.getBlockEntity(pos));
 
         return ActionResult.SUCCESS;
     }
 
     @Environment(EnvType.CLIENT)
-    private void OpenGui(BlockPos pos) {
-        MinecraftClient.getInstance().openScreen(new MicroControllerGuiScreen(new MicroControllerGui(pos)));
+    private void OpenGui(BlockPos pos, MicroControllerEntity entity) {
+        MinecraftClient.getInstance().openScreen(new MicroControllerGuiScreen(new MicroControllerGui(pos, entity)));
     }
 
     @Override
