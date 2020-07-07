@@ -1,10 +1,13 @@
 package com.elijahzawesome.mcufabric;
 
 import com.elijahzawesome.mcufabric.processor.McuProcessor;
+import com.elijahzawesome.mcufabric.processor.MemorySizes;
 import net.fabricmc.fabric.api.block.entity.BlockEntityClientSerializable;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.nbt.CompoundTag;
+
+import java.util.Optional;
 
 public class MicroControllerEntity extends BlockEntity implements BlockEntityClientSerializable {
 
@@ -12,11 +15,14 @@ public class MicroControllerEntity extends BlockEntity implements BlockEntityCli
     public boolean southPortEnabled = false;
     public boolean eastPortEnabled = false;
     public boolean westPortEnabled = false;
+
     public McuProcessor processor;
+
+    private MemorySizes[] memorySlots = new MemorySizes[8];
 
     public MicroControllerEntity() {
         super(McuFabric.BlockEntity);
-        processor = new McuProcessor();
+        processor = new McuProcessor(0, Optional.empty());
     }
 
     public void SetPorts(boolean north, boolean south, boolean east, boolean west) {
